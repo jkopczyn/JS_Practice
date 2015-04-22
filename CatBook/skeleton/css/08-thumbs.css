@@ -1,0 +1,36 @@
+/* PHASE 8: Thumbs */
+
+.thumb {
+  float: left;
+  height: 60px;
+  width: 60px;
+  margin: 5px;
+  border: thin solid #000;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.thumb img {
+  height: 60px;
+  width: 60px;
+}
+
+.thumb:before {
+  content: attr(title);
+  display: none;
+  position: absolute;
+  background: #000;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.thumb:before:hover {
+  display: block;
+}
+
+.friend-grid {
+  padding: 0px;
+  margin-left: 15px;
+}

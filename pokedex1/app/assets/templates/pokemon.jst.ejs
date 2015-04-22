@@ -1,0 +1,28 @@
+<% var imgUrl = pokemon.get("image_url") %>
+
+<div class='detail'>
+  <img src='<%= imgUrl %>'>
+  <form class="pokemon-record">
+    <% _.each(pokemon.attributes, function(val,key) { %>
+      <br>
+      <label> <%= key %>
+        <% if (key==="poke_type") { %>
+          <select name="pokemon[poke_type]">
+            <% var types = ("bug dragon electric fighting fire flying ghost " +
+                           "grass ground water ice normal poison psychic " +
+                           "rock steel").split(" "); %>
+            <% _.each(types, function(type) { %>
+              <option <%= pokemon.get("poke_type") === type ? "selected" : "" %>>
+                <%= type %></option>
+            <% }); %>
+          </select>
+        <% } else { %>
+          <input type="text" name="pokemon[<%= key %>]" value="<%= val %>">
+        <% } %>
+      </label>
+    <% }, this); %>
+    <input type="submit" value="Update">
+  </form>
+  <ul class='toys'>
+  </ul>
+</div>
